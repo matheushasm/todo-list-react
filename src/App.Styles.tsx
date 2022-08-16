@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const Area = styled.div`
     max-width: 900px;
     margin: auto;
+    padding: 30px;
     text-align: center;
     color: #FCFCFF;
 

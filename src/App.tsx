@@ -7,12 +7,7 @@ import { InputTask } from './components/InputTask';
 import { ListTaskTypes } from './types/TaskType';
 
 const App = () => {
-
-  const [tasks, setTasks] = useState<ListTaskTypes[]>([
-    {id: 1, name: 'Fazer Bolo', completed: false},
-    {id: 2, name: 'Fazer Chocolate', completed: true},
-  ]);
-
+  const [tasks, setTasks] = useState<ListTaskTypes[]>([]);
 
   const handleSaveTask = (taskName: string) => {
     let newTaskList = [...tasks];
@@ -22,7 +17,6 @@ const App = () => {
       name: taskName,
       completed: false
     })
-
     setTasks(newTaskList);
   }
 
@@ -40,7 +34,7 @@ const App = () => {
   return (
     <C.Container>
       <C.Area>
-        <h1>To Do List</h1>
+        <h1>TO DO LIST</h1>
 
         <InputTask 
         saveTaskFunction={handleSaveTask}
