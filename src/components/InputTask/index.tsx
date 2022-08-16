@@ -2,17 +2,15 @@ import { KeyboardEvent, useState } from 'react';
 import * as C from './styles';
 
 type Props = {
-    saveTask: (text: string) => void;
+    saveTaskFunction: (text: string) => void;
 }
 
-
-export const InputTask = ( { saveTask }: Props ) => {
-
+export const InputTask = ( { saveTaskFunction }: Props ) => {
     const [task, setTask] = useState<string>('')
 
     const handleEnterPress = (e: KeyboardEvent) => {
         if(e.code === 'Enter' && task !== '') {
-            saveTask(task);
+            saveTaskFunction(task);
             setTask('')
         }
     }
@@ -25,7 +23,7 @@ export const InputTask = ( { saveTask }: Props ) => {
             value={task} 
             onChange={e => setTask(e.target.value)} 
             onKeyUp={handleEnterPress}
-            placeholder='Fill your tasks here!'
+            placeholder='Fill your tasks here and press Enter!'
             autoFocus={true}
             />
         </C.Container>

@@ -4,7 +4,7 @@ import * as C from './App.Styles';
 import { Task } from './components/Task';
 import { InputTask } from './components/InputTask';
 
-import { ListTaskTypes } from './types/ListTaskTypes';
+import { ListTaskTypes } from './types/TaskType';
 
 const App = () => {
 
@@ -15,27 +15,26 @@ const App = () => {
 
 
   const handleSaveTask = (taskName: string) => {
-    let taskList = [...tasks];
+    let newTaskList = [...tasks];
 
-    taskList.push({
-      id: (taskList.length + 1),
+    newTaskList.push({
+      id: (newTaskList.length + 1),
       name: taskName,
       completed: false
     })
 
-    setTasks(taskList);
+    setTasks(newTaskList);
   }
 
-  const handleStatusTaskChange = ( id: number) => {
-    let taskList = [...tasks];
-    taskList.filter( item => (item.id == id)? item.completed = !item.completed : item);
-    setTasks(taskList);
+  const handleStatusSave = ( id: number) => {
+    let newTaskList = [...tasks];
+    newTaskList.filter( item => (item.id == id)? item.completed = !item.completed : item);
+    setTasks(newTaskList);
   }
 
   const handleRemoveTask = (id: number) => {
-    let taskList = tasks.filter( item => item.id !== id);
-    setTasks(taskList);
-
+    let newTaskList = tasks.filter( item => item.id !== id);
+    setTasks(newTaskList);
   }
 
   return (
@@ -44,7 +43,7 @@ const App = () => {
         <h1>To Do List</h1>
 
         <InputTask 
-        saveTask={handleSaveTask}
+        saveTaskFunction={handleSaveTask}
         />
 
         {tasks.map( task => (
@@ -53,8 +52,8 @@ const App = () => {
           id={task.id}
           name={task.name} 
           status={task.completed}
-          statusChange={handleStatusTaskChange}
-          handleRemoveTask={handleRemoveTask}
+          handleStatus={handleStatusSave}
+          handleRemoveFunction={handleRemoveTask}
           />
         ))}
 

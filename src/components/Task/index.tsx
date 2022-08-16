@@ -4,18 +4,18 @@ type Props = {
     id: number;
     name: string;
     status: boolean;
-    statusChange: (id: number) => void;
-    handleRemoveTask: (id: number) => void;
+    handleStatus: (id: number) => void;
+    handleRemoveFunction: (id: number) => void;
 }
 
-export const Task = ( {id, name, status, statusChange, handleRemoveTask}: Props ) => {
+export const Task = ( {id, name, status, handleStatus, handleRemoveFunction}: Props ) => {
 
-    const handleStatusChange = () => {
-        statusChange(id);
+    const handlehandleStatus = () => {
+        handleStatus(id);
     }
 
     const handleRemove = () => {
-        handleRemoveTask(id);
+        handleRemoveFunction(id);
     }
 
 
@@ -25,7 +25,7 @@ export const Task = ( {id, name, status, statusChange, handleRemoveTask}: Props 
                 <input 
                 type="checkbox" 
                 checked={status} 
-                onChange={handleStatusChange}
+                onChange={handlehandleStatus}
                 />
 
                 <div>
